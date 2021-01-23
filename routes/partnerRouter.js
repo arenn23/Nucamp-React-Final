@@ -1,14 +1,13 @@
 const router = require("express").Router();
-const Campsite = require("../models/campsiteModel");
+const Partner = require("../models/partnerModel.js");
 const e = require("express");
 
 router.get("/", async (req, res) => {
   let response = {};
   try {
-    let campsite = await Campsite.find({});
-    console.log(campsite);
+    let partner = await Partner.find({});
     response.success = true;
-    response.body = campsite;
+    response.body = partner;
     res.json(response);
   } catch (error) {
     response.message = error;

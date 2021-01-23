@@ -1,14 +1,13 @@
 const router = require("express").Router();
-const Campsite = require("../models/campsiteModel");
+const Promotion = require("../models/promotionModel.js");
 const e = require("express");
 
 router.get("/", async (req, res) => {
   let response = {};
   try {
-    let campsite = await Campsite.find({});
-    console.log(campsite);
+    let promotion = await Promotion.find({});
     response.success = true;
-    response.body = campsite;
+    response.body = promotion;
     res.json(response);
   } catch (error) {
     response.message = error;

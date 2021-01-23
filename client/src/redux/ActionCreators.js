@@ -15,7 +15,7 @@ export const postComment = (campsiteId, rating, author, text) => (dispatch) => {
   };
   newComment.date = new Date().toISOString();
 
-  return fetch(baseUrl + "comments", {
+  return fetch("http://localhost:5000/comments/", {
     method: "POST",
     body: JSON.stringify(newComment),
     headers: {
@@ -42,7 +42,7 @@ export const postComment = (campsiteId, rating, author, text) => (dispatch) => {
     .then((response) => dispatch(addComment(response)))
     .catch((error) => {
       console.log("post comment", error.message);
-      alert("Your comment could not be posted\nError: " + error.message);
+      //alert("Your comment could not be posted\nError: " + error.message);
     });
 };
 
@@ -89,7 +89,7 @@ export const addCampsites = (campsites) => ({
 });
 
 export const fetchComments = () => (dispatch) => {
-  return fetch(baseUrl + "comments")
+  return fetch("http://localhost:5000/comments/")
     .then(
       (response) => {
         if (response.ok) {
@@ -125,7 +125,7 @@ export const addComments = (comments) => ({
 export const fetchPromotions = () => (dispatch) => {
   dispatch(promotionsLoading());
 
-  return fetch(baseUrl + "promotions")
+  return fetch("http://localhost:5000/promotions/")
     .then(
       (response) => {
         if (response.ok) {
@@ -166,7 +166,7 @@ export const addPromotions = (promotions) => ({
 export const fetchPartners = () => (dispatch) => {
   dispatch(partnersLoading());
 
-  return fetch(baseUrl + "partners")
+  return fetch("http://localhost:5000/partners/")
     .then(
       (response) => {
         if (response.ok) {
@@ -204,7 +204,7 @@ export const addPartners = (partners) => ({
 });
 
 export const postFeedback = (feedback) => () => {
-  return fetch(baseUrl + "feedback", {
+  return fetch("http://localhost:5000/feedback/", {
     method: "POST",
     body: JSON.stringify(feedback),
     headers: {

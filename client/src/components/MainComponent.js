@@ -68,25 +68,13 @@ class Main extends Component {
     const HomePage = () => {
       return (
         <Home
-          campsite={
-            this.props.campsites.campsites.filter(
-              (campsite) => campsite.featured
-            )[0]
-          }
+          campsite={this.props.campsites.campsites.body}
           campsitesLoading={this.props.campsites.isLoading}
           campsitesErrMess={this.props.campsites.errMess}
-          partner={
-            this.props.partners.partners.filter(
-              (partner) => partner.featured
-            )[0]
-          }
+          partner={this.props.partners.partners.body}
           partnersLoading={this.props.partners.isLoading}
           partnersErrMess={this.props.partners.errMess}
-          promotion={
-            this.props.promotions.promotions.filter(
-              (promotion) => promotion.featured
-            )[0]
-          }
+          promotion={this.props.promotions.promotions.body}
           promotionsLoading={this.props.promotions.isLoading}
           promotionsErrMess={this.props.promotions.errMess}
         />
@@ -95,20 +83,29 @@ class Main extends Component {
 
     const CampsiteWithId = ({ match }) => {
       return (
-        <CampsiteInfo
-          campsite={
-            this.props.campsites.campsites.filter(
-              (campsite) => campsite.id === +match.params.campsiteId
-            )[0]
-          }
-          isLoading={this.props.campsites.isLoading}
-          errMess={this.props.campsites.errMess}
-          comments={this.props.comments.comments.filter(
-            (comment) => comment.campsiteId === +match.params.campsiteId
+        <>
+          {this.props.campsites.campsites.body !== undefined &&
+          this.props.comments.comments.body !== undefined ? (
+            <>
+              <CampsiteInfo
+                campsite={
+                  this.props.campsites.campsites.body.filter(
+                    (campsite) => campsite.id == +match.params.campsiteId
+                  )[0]
+                }
+                isLoading={this.props.campsites.isLoading}
+                errMess={this.props.campsites.errMess}
+                comments={this.props.comments.comments.body.filter(
+                  (comment) => comment.campsiteId == +match.params.campsiteId
+                )}
+                commentsErrMess={this.props.comments.errMess}
+                postComment={this.props.postComment}
+              />
+            </>
+          ) : (
+            <></>
           )}
-          commentsErrMess={this.props.comments.errMess}
-          postComment={this.props.postComment}
-        />
+        </>
       );
     };
 

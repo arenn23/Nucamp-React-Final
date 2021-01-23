@@ -19,10 +19,10 @@ function RenderCard({ item, isLoading, errMess }) {
       }}
     >
       <Card>
-        <CardImg src={item.image} alt={item.name} />
+        <CardImg src={item[0].image} alt={item.name} />
         <CardBody>
-          <CardTitle>{item.name}</CardTitle>
-          <CardText>{item.description}</CardText>
+          <CardTitle>{item[0].name}</CardTitle>
+          <CardText>{item[0].description}</CardText>
         </CardBody>
       </Card>
     </FadeTransform>

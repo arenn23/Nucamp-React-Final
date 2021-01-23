@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
+const { MongoClient } = require("mongodb");
 const BodyParser = require("body-parser");
 require("dotenv").config();
 
@@ -13,7 +14,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-var mongoDB = process.env.MONGODB_URI;
+var mongoDB = `mongodb+srv://arenn23:Asevenx2321!@cluster0.8ekta.mongodb.net/nucamp?retryWrites=true&w=majority`;
 mongoose
   .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connection successful"));
@@ -29,6 +30,11 @@ if (process.env.NODE_ENV === "production")
 else fileLoc = path.join(__dirname + "/client/public/index.html");
 
 app.use("/campsites", require("./routes/campsiteRouter"));
+app.use("/promotions", require("./routes/promotionRouter"));
+app.use("/partners", require("./routes/partnerRouter"));
+app.use("/comments", require("./routes/commentRouter"));
+app.use("/feedback", require("./routes/feedbackRouter"));
+
 app.get("*", (req, res) => {
   res.sendFile(fileLoc);
 });
