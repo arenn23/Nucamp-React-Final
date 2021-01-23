@@ -19,11 +19,6 @@ import {
 import { actions } from "react-redux-form";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import { CAMPSITES } from "../shared/campsites";
-import { COMMENTS } from "../shared/comments";
-import { PARTNERS } from "../shared/partners";
-import { PROMOTIONS } from "../shared/promotions";
-
 const mapStateToProps = (state) => {
   return {
     campsites: state.campsites,

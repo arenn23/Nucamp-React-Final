@@ -28,6 +28,7 @@ if (process.env.NODE_ENV === "production")
   fileLoc = path.join(__dirname + "/client/public/index.html");
 else fileLoc = path.join(__dirname + "/client/public/index.html");
 
+app.use("/campsites", require("./routes/campsiteRouter"));
 app.get("*", (req, res) => {
   res.sendFile(fileLoc);
 });
