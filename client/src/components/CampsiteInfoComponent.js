@@ -119,9 +119,9 @@ class CommentForm extends Component {
     });
   }
 
-  componentDidUpdate() {
-    this.props.fetchComments();
-  }
+  //componentDidUpdate() {
+  //  this.props.fetchComments();
+  //}
 
   render() {
     return (
