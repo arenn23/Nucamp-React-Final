@@ -183,18 +183,6 @@ class CommentForm extends Component {
 
 //show information on site
 function CampsiteInfo(props) {
-  useEffect(async () => {
-    fetch(`/comments`, {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success) {
-          console.log("hello");
-        }
-      });
-  }, []);
-
   if (props.isLoading) {
     return (
       <div className="container">
