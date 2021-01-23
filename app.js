@@ -14,7 +14,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-var mongoDB = MONGODB_URI;
+var mongoDB = process.env.MONGODB_URI;
 mongoose
   .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connection successful"));
