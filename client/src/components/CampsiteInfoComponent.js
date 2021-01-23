@@ -193,7 +193,7 @@ function CampsiteInfo(props) {
           console.log("hello");
         }
       });
-  });
+  }, []);
 
   if (props.isLoading) {
     return (
