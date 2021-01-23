@@ -99,7 +99,7 @@ class CommentForm extends Component {
       values.author,
       values.text
     );
-    this.refresh();
+    // this.refresh();
   }
   refresh() {
     window.location.reload(false);
