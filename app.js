@@ -14,7 +14,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-var mongoDB = `mongodb+srv://arenn23:Asevenx2321!@cluster0.8ekta.mongodb.net/nucamp?retryWrites=true&w=majority`;
+var mongoDB = MONGODB_URI;
 mongoose
   .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connection successful"));

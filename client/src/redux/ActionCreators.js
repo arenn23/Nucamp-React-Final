@@ -15,7 +15,7 @@ export const postComment = (campsiteId, rating, author, text) => (dispatch) => {
   };
   newComment.date = new Date().toISOString();
 
-  return fetch("http://localhost:5000/comments/", {
+  return fetch("/comments/", {
     method: "POST",
     body: JSON.stringify(newComment),
     headers: {
@@ -49,7 +49,7 @@ export const postComment = (campsiteId, rating, author, text) => (dispatch) => {
 export const fetchCampsites = () => (dispatch) => {
   dispatch(campsitesLoading());
 
-  fetch("http://localhost:5000/campsites/", {
+  fetch("/campsites/", {
     method: "GET",
   })
     .then(
@@ -89,7 +89,7 @@ export const addCampsites = (campsites) => ({
 });
 
 export const fetchComments = () => (dispatch) => {
-  return fetch("http://localhost:5000/comments/")
+  return fetch("/comments/")
     .then(
       (response) => {
         if (response.ok) {
@@ -125,7 +125,7 @@ export const addComments = (comments) => ({
 export const fetchPromotions = () => (dispatch) => {
   dispatch(promotionsLoading());
 
-  return fetch("http://localhost:5000/promotions/")
+  return fetch("/promotions/")
     .then(
       (response) => {
         if (response.ok) {
@@ -166,7 +166,7 @@ export const addPromotions = (promotions) => ({
 export const fetchPartners = () => (dispatch) => {
   dispatch(partnersLoading());
 
-  return fetch("http://localhost:5000/partners/")
+  return fetch("/partners/")
     .then(
       (response) => {
         if (response.ok) {
@@ -204,7 +204,7 @@ export const addPartners = (partners) => ({
 });
 
 export const postFeedback = (feedback) => () => {
-  return fetch("http://localhost:5000/feedback/", {
+  return fetch("/feedback/", {
     method: "POST",
     body: JSON.stringify(feedback),
     headers: {
