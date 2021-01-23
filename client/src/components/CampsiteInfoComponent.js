@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router";
-import { connect } from "react-redux";
 import {
   Card,
   CardImg,
@@ -14,7 +12,6 @@ import {
   ModalBody,
   Label,
 } from "reactstrap";
-import { fetchComments } from "../redux/ActionCreators";
 import { Link } from "react-router-dom";
 import { Control, LocalForm, Errors } from "react-redux-form";
 import { Loading } from "./LoadingComponent";
@@ -81,15 +78,6 @@ function RenderComments({ comments, postComment, campsiteID }) {
   return <div />;
 }
 
-const mapDispatchToProps = {
-  fetchComments: () => fetchComments(),
-};
-const mapStateToProps = (state) => {
-  return {
-    comments: state.comments,
-  };
-};
-
 //Adding Comment button and show comment
 class CommentForm extends Component {
   constructor(props) {
@@ -118,10 +106,6 @@ class CommentForm extends Component {
       isModalOpen: !this.state.isModalOpen,
     });
   }
-
-  //componentDidUpdate() {
-  //  this.props.fetchComments();
-  //}
 
   render() {
     return (
@@ -248,4 +232,4 @@ function CampsiteInfo(props) {
   return <div />;
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CampsiteInfo);
+export default CampsiteInfo;
