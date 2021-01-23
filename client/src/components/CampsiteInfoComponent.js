@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import {
   Card,
   CardImg,
@@ -99,10 +100,7 @@ class CommentForm extends Component {
       values.author,
       values.text
     );
-    // this.refresh();
-  }
-  refresh() {
-    window.location.reload(false);
+    props.history.push(`/directory/${parseInt(props.campsite.id)}`);
   }
 
   toggleModal() {
@@ -236,4 +234,4 @@ function CampsiteInfo(props) {
   return <div />;
 }
 
-export default CampsiteInfo;
+export default withRouter(CampsiteInfo);
