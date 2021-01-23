@@ -22,12 +22,12 @@ mongoose
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB Connection Error"));
 
-app.use(express.static(path.join(__dirname, "/client/build")));
+app.use(express.static(path.resolve(__dirname, "/client/build")));
 let fileLoc = "";
 
 if (process.env.NODE_ENV === "production")
-  fileLoc = path.join(__dirname + "/client/public/index.html");
-else fileLoc = path.join(__dirname + "/client/public/index.html");
+  fileLoc = path.resolve(__dirname + "/client/public/index.html");
+else fileLoc = path.resolve(__dirname + "/client/public/index.html");
 
 app.use("/campsites", require("./routes/campsiteRouter"));
 app.use("/promotions", require("./routes/promotionRouter"));
