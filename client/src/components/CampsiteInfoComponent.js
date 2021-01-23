@@ -100,7 +100,7 @@ class CommentForm extends Component {
       values.author,
       values.text
     );
-    props.history.push(`/directory/${parseInt(props.campsite.id)}`);
+    this.props.history.push(`/directory/${parseInt(this.props.campsite.id)}`);
   }
 
   toggleModal() {
