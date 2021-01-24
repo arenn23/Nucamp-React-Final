@@ -26,8 +26,8 @@ app.use(express.static(path.join(__dirname, "/client/build")));
 let fileLoc = "";
 
 if (process.env.NODE_ENV === "production")
-  fileLoc = path.resolve(__dirname + "/client/public/index.html");
-else fileLoc = path.resolve(__dirname + "/client/public/index.html");
+  fileLoc = path.resolve(__dirname + "/client/build/index.html");
+else fileLoc = path.resolve(__dirname + "/client/build/index.html");
 
 app.use("/campsites", require("./routes/campsiteRouter"));
 app.use("/promotions", require("./routes/promotionRouter"));
