@@ -99,6 +99,7 @@ class CommentForm extends Component {
       values.author,
       values.text
     );
+    window.location.reload(false);
   }
 
   toggleModal() {
